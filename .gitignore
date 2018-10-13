@@ -19,7 +19,7 @@ target/
 .classpatch
 
 #idea
-.idae/
+.idea/
 /idea/
 *.ipr
 *.iml
