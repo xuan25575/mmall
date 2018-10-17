@@ -24,13 +24,19 @@
     </filter-mapping>
 
 
+    <!-- ServletRequestListener监听HTTP请求事件，Web服务器接收的每次请求都会通知该监听器。
+         RequestContextListener将Spring容器与Web容器结合的更加密切。这是可选配置，-->
     <listener>
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>
-
+    <!--ContextLoaderListener extends ContextLoader implements ServletContextListener。
+        ServletContextListener extends EventListener。
+        ServletContextListener只负责监听Web容器的启动和关闭的事件。
+        ContextLoaderListener(或ContextLoaderServlet)将Web容器与spring容器进行整合。 -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+    <!--加载spring配置文件-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
@@ -38,12 +44,23 @@
         </param-value>
     </context-param>
 
+    <!--并没有指定配置文件的位置，所以spring会默认查找WEB-INF下
+    <serlet-name>-servlet.xml(即springmvc-servlet)文件作为配置文件。
+   < servlet-class>的标签下，也可以使用标签<init-param>，
+     配置了查找classpath下的springmvc-servlet.xml配置文件。
+      <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:/spring/spring-*.xml</param-value>
+       </init-param>
+    -->
     <servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
+
+    <!---->
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.do</url-pattern>
