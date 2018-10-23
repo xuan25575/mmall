@@ -74,4 +74,6 @@ public interface IUserService {
      * @return ServerResponse<User>
      */
     ServerResponse<User> getInformation(Integer userId);
+
+    ServerResponse checkAdmin(User user);
 }
