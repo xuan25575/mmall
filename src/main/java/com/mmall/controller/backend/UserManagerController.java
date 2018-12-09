@@ -31,7 +31,7 @@ public class UserManagerController {
     public ServerResponse<User> login(String username, String password, HttpSession session){
         ServerResponse<User> response = iUserService.login(username,password);
         if(response.isSuccess()){
-            User user = response.getDate();
+            User user = response.getData();
             if(user.getRole() == Const.Role.ROLE_ADMIN){
                 session.setAttribute(Const.CURRENT_USER,user);
                 return response;

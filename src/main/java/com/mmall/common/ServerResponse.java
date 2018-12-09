@@ -11,7 +11,7 @@ public class ServerResponse<T> implements Serializable {
 
     private int status;
     private String msg;
-    private T date;
+    private T data;
 
     private ServerResponse(int status){
         this.status=status;
@@ -20,14 +20,14 @@ public class ServerResponse<T> implements Serializable {
         this.status=status;
         this.msg=msg;
     }
-    private ServerResponse(int status,String msg,T date){
+    private ServerResponse(int status,String msg,T data){
         this.status=status;
         this.msg=msg;
-        this.date = date;
+        this.data = data;
     }
-    private ServerResponse(int status,T date){
+    private ServerResponse(int status,T data){
         this.status=status;
-        this.date = date;
+        this.data = data;
     }
 
     @JsonIgnore
@@ -45,12 +45,12 @@ public class ServerResponse<T> implements Serializable {
         return  new ServerResponse<T>(ResponseCode.SUCCESS.getCode(),msg);
     }
 
-    public static <T>ServerResponse<T> createBySuccess(T date){
-        return  new ServerResponse<T>(ResponseCode.SUCCESS.getCode(),date);
+    public static <T>ServerResponse<T> createBySuccess(T data){
+        return  new ServerResponse<T>(ResponseCode.SUCCESS.getCode(),data);
     }
 
-    public static <T>ServerResponse<T> createBySuccess(String msg ,T date){
-        return  new ServerResponse<T>(ResponseCode.SUCCESS.getCode(),msg,date);
+    public static <T>ServerResponse<T> createBySuccess(String msg ,T data){
+        return  new ServerResponse<T>(ResponseCode.SUCCESS.getCode(),msg,data);
     }
     public static <T>ServerResponse<T> createByError(){
         return  new ServerResponse<T>(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getDesc());
@@ -70,7 +70,7 @@ public class ServerResponse<T> implements Serializable {
         return msg;
     }
 
-    public T getDate() {
-        return date;
+    public T getData() {
+        return data;
     }
 }

@@ -34,7 +34,7 @@ public class UserController {
         // service - mybatis ->dao
         ServerResponse<User> response = iUserService.login(username, password);
         if(response.isSuccess()){
-            session.setAttribute(Const.CURRENT_USER,response.getDate());
+            session.setAttribute(Const.CURRENT_USER,response.getData());
         }
         return response;
     }
@@ -164,7 +164,7 @@ public class UserController {
         user.setUsername(currentUser.getUsername());
         ServerResponse<User> response = iUserService.updateInformation(user);
         if(response.isSuccess()){
-            session.setAttribute(Const.CURRENT_USER,response.getDate());
+            session.setAttribute(Const.CURRENT_USER,response.getData());
         }
         return response;
     }

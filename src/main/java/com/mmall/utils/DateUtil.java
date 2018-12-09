@@ -44,6 +44,6 @@ public class DateUtil {
 
     public static void main(String[] args) {
         System.out.println(DateUtil.dateToStr(new Date()));
-        System.out.println(DateUtil.strToDate("2011-10-11 22:22:22"));
+       // System.out.println(DateUtil.strToDate("2011-10-11 22:22:22"));
     }
 }

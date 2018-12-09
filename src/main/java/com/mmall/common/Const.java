@@ -44,4 +44,90 @@ public class Const {
             return value;
         }
     }
+
+
+    public interface AlipayCallback{
+          String  TRADE_STATUS_TRADE_SUCCESS = "TRADE_SUCCESS";
+          String TRADE_STATUS_WAIT_BUYER_PAY = "WAIT_BUYER_PAY";
+
+          String  RESPONSE_SUCCESS="RESPONSE_SUCCESS";
+          String  RESPONSE_FAILED="RESPONSE_FAILED";
+    }
+
+    public enum OrderStatusEnum{
+        CANCELED("已取消",0),
+        NO_PAY("未付款",10),
+        PAID("支付成功",20),
+        SHIPPED("已发货",40),
+        SUCCESS("交易成功",50);
+
+        private String value;
+        private Integer code;
+        OrderStatusEnum(String value, Integer code) {
+            this.value = value;
+            this.code = code;
+        }
+        public static OrderStatusEnum codeOf(int code){
+            for(OrderStatusEnum orderStatusEnum : values()){
+                if(orderStatusEnum.getCode() == code){
+                    return orderStatusEnum;
+                }
+            }
+            throw new RuntimeException("没有该类型的枚举");
+        }
+
+        public String getValue() {
+            return value;
+        }
+        public Integer getCode() {
+            return code;
+        }
+    }
+
+   public enum PayPlatformEnum{
+        ALIPAY("支付宝",1),;
+       private String value;
+       private Integer code;
+       PayPlatformEnum(String value, Integer code) {
+           this.value = value;
+           this.code = code;
+       }
+
+       public String getValue() {
+           return value;
+       }
+
+       public Integer getCode() {
+           return code;
+       }
+   }
+
+
+   public enum PaymentTypeEnum{
+       ONLINE_PAY("在线支付",1);
+
+       private String value;
+       private Integer code;
+       PaymentTypeEnum(String value, Integer code) {
+           this.value = value;
+           this.code = code;
+       }
+
+       public static PaymentTypeEnum codeOf(int code){
+           for(PaymentTypeEnum paymentTypeEnum : values()){
+               if(paymentTypeEnum.getCode() == code){
+                   return paymentTypeEnum;
+               }
+           }
+           throw new RuntimeException("没有该类型的枚举");
+       }
+
+       public String getValue() {
+           return value;
+       }
+
+       public Integer getCode() {
+           return code;
+       }
+   }
 }

@@ -189,7 +189,7 @@ public class ProductServiceImpl implements IProductService {
                 PageInfo pageInfo = new PageInfo(productListVOList);
                 return ServerResponse.createBySuccess(pageInfo);
             }
-            categoryIdList = iCategoryService.selectCategoryAndChildrenById(categoryId).getDate();
+            categoryIdList = iCategoryService.selectCategoryAndChildrenById(categoryId).getData();
         }
         if (StringUtils.isNotBlank(keyword)) {
             keyword = new StringBuffer().append("%").append(keyword).append("%").toString();
