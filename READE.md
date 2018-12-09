@@ -1,5 +1,6 @@
 mmall.learning
 
+
 该项目是mmall商城项目，前后端分离
 后端代码 
    在 v1.0分支 基于ssm框架的。
@@ -11,4 +12,5 @@ mmall.learning
    4. 支付模块
    5. 分类管理模块
    6. 用户模块
+   
      
