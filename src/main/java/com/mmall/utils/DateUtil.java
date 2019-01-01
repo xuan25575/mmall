@@ -9,9 +9,8 @@ import java.util.Date;
 
 public class DateUtil {
 
-    private static final String STANDARD_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    public static final String STANDARD_FORMAT = "yyyy-MM-dd HH:mm:ss";
     //joda time
-
     public static Date strToDate(String strDate, String dateFormat){
         DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern(dateFormat);
         DateTime dateTime = dateTimeFormatter.parseDateTime(strDate);

@@ -23,6 +23,28 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <filter>
+        <filter-name>sessionExpireFilter</filter-name>
+        <filter-class>com.mmall.controller.common.SessionExpireFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>sessionExpireFilter</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+
+
+    <!--<filter>-->
+    <!--<filter-name>springSessionRepositoryFilter</filter-name>-->
+    <!--<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+    <!--<filter-name>springSessionRepositoryFilter</filter-name>-->
+    <!--<url-pattern>*.do</url-pattern>-->
+    <!--</filter-mapping>-->
+
+
+
+
 
     <!-- ServletRequestListener监听HTTP请求事件，Web服务器接收的每次请求都会通知该监听器。
          RequestContextListener将Spring容器与Web容器结合的更加密切。这是可选配置，-->
@@ -59,11 +81,10 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 
-
     <!---->
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
-        <url-pattern>*.do</url-pattern>
+        <url-pattern>/</url-pattern>  <!--缺省配置 拦截所有请求 注意： “/*”和“/”均会拦截静态资源的加载，需要特别注意-->
     </servlet-mapping>
 
 </web-app>
