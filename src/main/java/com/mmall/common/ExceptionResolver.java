@@ -19,7 +19,7 @@ public class ExceptionResolver implements HandlerExceptionResolver {
         log.error("{} Exception",httpServletRequest.getRequestURI(),e);
         ModelAndView modelAndView = new ModelAndView(new MappingJacksonJsonView());
 
-        //当使用是jackson2.x的时候使用MappingJackson2JsonView，课程中使用的是1.9。
+        //当使用是jackson2.x的时候使用MappingJackson2JsonView，该項目使用的是1.9。
         modelAndView.addObject("status", ResponseCode.ERROR.getCode());
         modelAndView.addObject("msg","接口异常,详情请查看服务端日志的异常信息");
         modelAndView.addObject("data",e.toString());
