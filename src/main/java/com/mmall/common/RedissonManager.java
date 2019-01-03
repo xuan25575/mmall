@@ -26,6 +26,7 @@ public class RedissonManager {
     private static String redis2Ip = PropertiesUtil.getProperty("redis2.ip");
     private static Integer redis2Port = Integer.parseInt(PropertiesUtil.getProperty("redis2.port"));
 
+    // 该注解在构造器执行后执行
     @PostConstruct
     private void init(){
         try {

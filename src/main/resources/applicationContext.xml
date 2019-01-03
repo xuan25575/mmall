@@ -17,10 +17,9 @@
     <!--声明自动为spring容器中那些配置@aspectJ切面的bean创建代理，织入切面。-->
     <aop:aspectj-autoproxy/>
 
-    !-- 新增spring schedule的时候新增的 -->
+   <!-- 新增spring schedule的时候新增的 -->
     <context:property-placeholder location="classpath:datasource.properties"/>
     <task:annotation-driven/>
-
 
 
     <!--导入其他配置文件-->

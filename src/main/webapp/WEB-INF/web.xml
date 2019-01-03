@@ -32,15 +32,18 @@
         <url-pattern>*.do</url-pattern>
     </filter-mapping>
 
+    <!--DelegatingFilterProxy就是一个对于servlet filter的代理，用这个类的好处主要是通过Spring容器
+    来管理servlet filter的生命周期，还有就是如果filter中需要一些Spring容器的实例，
+    可以通过spring直接注入，另外读取一些配置文件这些便利的操作都可以通过Spring来配置实现。-->
 
-    <!--<filter>-->
-    <!--<filter-name>springSessionRepositoryFilter</filter-name>-->
-    <!--<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
-    <!--</filter>-->
-    <!--<filter-mapping>-->
-    <!--<filter-name>springSessionRepositoryFilter</filter-name>-->
-    <!--<url-pattern>*.do</url-pattern>-->
-    <!--</filter-mapping>-->
+   <!-- <filter>
+    <filter-name>springSessionRepositoryFilter</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+    <filter-name>springSessionRepositoryFilter</filter-name>
+    <url-pattern>*.do</url-pattern>
+    </filter-mapping>-->
 
 
 

@@ -74,7 +74,10 @@ public class ProductManagerController {
     @ResponseBody
     public ServerResponse upload(HttpServletRequest httpServletRequest,@RequestParam(value = "upload_file",required = false) MultipartFile file,
                                  HttpServletRequest request){
+        //获取Web项目的全路径
+       // String strDirPath = request.getSession().getServletContext().getRealPath("/");
         String path = request.getSession().getServletContext().getRealPath("upload");
+        System.out.println("upload path："+ path);
         String targetFileName = iFileService.upload(file,path);
         String url = PropertiesUtil.getProperty("ftp.server.http.prefix")+targetFileName;
         Map fileMap = Maps.newHashMap();
