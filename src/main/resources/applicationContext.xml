@@ -13,6 +13,7 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" /><!--通过exclude-filter 进行黑名单过滤；-->
     </context:component-scan>
 
+    <!--开启注解装配-->
     <!--<context:annotation-config/>-->
     <!--声明自动为spring容器中那些配置@aspectJ切面的bean创建代理，织入切面。-->
     <aop:aspectj-autoproxy/>

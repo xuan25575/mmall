@@ -24,7 +24,7 @@ public class ShippingServiceImpl implements IShippingService {
         int rowCount = shippingMapper.insert(shipping);
         if(rowCount > 0){
             Map result = Maps.newHashMap();
-            //todo 里面有shippingId吗？ 前台没有传值为啥有呢？
+            //todo 里面有shippingId吗？ 前台没有传值为啥有呢？  mybatis 插入成功后返回主键。
             result.put("shippingId",shipping.getId());
             return ServerResponse.createBySuccess("新增地址成功",result);
         }

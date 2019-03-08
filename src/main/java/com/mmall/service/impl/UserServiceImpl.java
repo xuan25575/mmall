@@ -69,7 +69,7 @@ public class UserServiceImpl implements IUserService {
             if(Const.USERNAME.equals(type)){
                 int resultCount = userMapper.checkUsername(str);
                 if(resultCount > 0){
-                    return ServerResponse.createByErrorMessage("用户名已存在");
+                    return ServerResponse.createByErrorMessage("用户名已存在"); // isSuccess  返回false。
                 }
             }
         }else{
@@ -82,9 +82,9 @@ public class UserServiceImpl implements IUserService {
     public ServerResponse<String> selectQuestion(String username){
         ServerResponse responseValid = this.checkValid(username,Const.USERNAME);
         //这里的逻辑判断用户存不存在。
-        if(responseValid.isSuccess()){
+        if(responseValid.isSuccess()){ // 返回的code 不等于 ResponseCode.SUCCESS  // false;
             //用户不存在  这里的逻辑有点转
-            //不是很明白----解释：如果是成功的话这样的 ServerResponse.createBySuccessMessage("校验成功");失败是用户存在。
+            //不明白的话----解释：如果是成功的话这样的 ServerResponse.createBySuccessMessage("校验成功");失败是用户存在。
             //但是这是不符合要求的所以，重新定义返回值。
             return ServerResponse.createByErrorMessage("用户名不存在");
         }
