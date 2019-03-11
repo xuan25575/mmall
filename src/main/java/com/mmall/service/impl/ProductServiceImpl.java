@@ -88,6 +88,7 @@ public class ProductServiceImpl implements IProductService {
          return ServerResponse.createBySuccess(productDetailVo);
      }
 
+     // 主要用来将pojo和VO转化， VO前端数据和控件的绑定操作。
      private ProductDetailVo assembleProductDetailVo(Product product){
          ProductDetailVo productDetailVo = new ProductDetailVo();
          productDetailVo.setId(product.getId());

@@ -229,7 +229,7 @@ public class OrderServiceImpl implements IOrderService {
 
 
     private BigDecimal getOrderTotalPrice(List<OrderItem> orderItemList){
-        BigDecimal payment = new BigDecimal("0");
+         BigDecimal payment = new BigDecimal("0");
         for(OrderItem orderItem : orderItemList){
             payment = BigDecimalUtil.add(payment.doubleValue(),orderItem.getTotalPrice().doubleValue());
         }
@@ -541,8 +541,8 @@ public class OrderServiceImpl implements IOrderService {
         PageHelper.startPage(pageNum,pageSize);
         List<Order> orderList = orderMapper.selectAllOrder();
         List<OrderVo> orderVoList = this.assembleOrderVoList(orderList,null);
-        PageInfo pageResult = new PageInfo(orderList);
-        pageResult.setList(orderVoList);
+        PageInfo pageResult = new PageInfo(orderList);     // 由于原始的orderList 中pojo 能数据库中字段映射，
+        pageResult.setList(orderVoList); // orderVoList这个vo对象中返回前端。需要封装一返回。
         return ServerResponse.createBySuccess(pageResult);
     }
 

@@ -102,7 +102,7 @@ public class ProductManagerController {
         resultMap.put("success",true);
         resultMap.put("msg","上传成功");
         resultMap.put("file_path",url);
-        response.addHeader("Access-Control-Allow-Headers","X-File-Name");
+        response.addHeader("Access-Control-Allow-Headers","X-File-Name");  //和前端插件约定。
         return resultMap;
     }
 

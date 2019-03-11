@@ -82,7 +82,7 @@ public class CartServiceImpl implements ICartService {
 
 
     public ServerResponse<CartVo> selectOrUnSelect(Integer userId,Integer productId,Integer checked){
-        cartMapper.selectOrUnSelectChecked(userId,null,checked);
+        cartMapper.selectOrUnSelectChecked(userId,productId,checked);
         return  this.list(userId);
     }
 
@@ -122,7 +122,7 @@ public class CartServiceImpl implements ICartService {
                     if(product.getStock() >= cartItem.getQuantity()){
                         cartProductVo.setLimitQuantity(Const.Cart.LIMIT_NUM_SUCCESS);
                         buyLimitCount = cartItem.getQuantity();
-                    }else{
+                    }else{  // 当库存数量不足时
                         buyLimitCount = product.getStock();
                         cartProductVo.setLimitQuantity(Const.Cart.LIMIT_NUM_FAIL);
                         //更新购物车中有效库存

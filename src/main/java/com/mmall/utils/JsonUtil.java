@@ -47,6 +47,7 @@ public class JsonUtil {
         }
     }
 
+     //美观展示
     public static <T> String obj2StringPretty(T obj){
         if(obj == null){
             return null;

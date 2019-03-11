@@ -90,13 +90,12 @@ public class CategoryServiceImpl implements ICategoryService{
 
      private Set<Category> findChildrenCategory(Set<Category> categorySet, Integer categoryId){
          Category category = categoryMapper.selectByPrimaryKey(categoryId);
-         //递归结束条件
          if(category != null){
              categorySet.add(category);
          }
-         //查找子节点，递归算法一定要有一个结束条件。  mybatis 返回的集合不用做非空判断
+         //查找子节点，递归算法一定要有一个结束条件。  mybatis 返回的集合不用做非空判断 返回空的list
          List<Category> categoryList = categoryMapper.selectCategoryChildrenByParentId(categoryId);
-         for (Category categoryItem : categoryList){
+         for (Category categoryItem : categoryList){  // 亲测 回空的list不会进来遍历。这就是递归结束条件。 学到for循环也能做递归结束条件。
              findChildrenCategory(categorySet,categoryItem.getId());
          }
          return categorySet;
