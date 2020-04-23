@@ -1,4 +1,4 @@
-# mmall
+# mmall 电商后端代码
 mmall learning
 
 1. 分支v1.0  主要技术  SSM/Guava/Jackson/Joda/注解。
